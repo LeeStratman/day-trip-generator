@@ -39,9 +39,6 @@ let dayTripApp = function () {
     }
 
     switch (command.toLowerCase()) {
-      case "a":
-        dayTrip = generateDayTrip();
-        break;
       case "d":
         dayTrip.destination = updateTripProperty(
           DESTINATIONS,
@@ -95,13 +92,11 @@ let dayTripApp = function () {
 
   function promptUser() {
     return prompt(
-      `Your day trip is displayed below:\n
+      `Your day trip is displayed below:\n\n
       Destination: ${dayTrip.destination} (enter 'd' to update)\n
       Restaurant: ${dayTrip.restaurant} (enter 'r' to update)\n
       Transportation: ${dayTrip.transportation} (enter 't' to update)\n
-      Entertainment: ${dayTrip.entertainment} (enter 'e' to update)\n
-      
-      To generate a new trip, enter 'a'. To confirm the day trip, enter 'confirm'.`,
+      Entertainment: ${dayTrip.entertainment} (enter 'e' to update)\n\n\nTo confirm the day trip, enter 'confirm'.\n`,
       "confirm"
     );
   }
