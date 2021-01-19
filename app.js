@@ -109,7 +109,6 @@ let dayTripApp = function () {
   function confirmDayTrip() {
     confirmed = true;
     displayDayTrip();
-    alert("Your trip has been confirmed! Enjoy!");
   }
 
   function displayDayTrip() {
