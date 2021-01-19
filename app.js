@@ -70,20 +70,34 @@ function generateDayTrip() {
 function updateDayTrip(trip, tripProperty) {
   switch (tripProperty) {
     case "destination":
-      trip.destination = DESTINATIONS[randomNumber(DESTINATIONS.length)];
+      trip.destination = updateTripProperty(DESTINATIONS, trip.destination);
       break;
     case "restaurant":
-      trip.restaurant = RESTAURANTS[randomNumber(RESTAURANTS.length)];
+      trip.restaurant = updateTripProperty(RESTAURANTS, trip.restaurant);
       break;
     case "transportation":
-      trip.transportation = TRANSPORTATION[randomNumber(TRANSPORTATION.length)];
+      trip.transportation = updateTripProperty(
+        TRANSPORTATION,
+        trip.transportation
+      );
       break;
     case "entertainment":
-      trip.entertainment = ENTERTAINMENT[randomNumber(ENTERTAINMENT.length)];
+      trip.entertainment = updateTripProperty(
+        ENTERTAINMENT,
+        trip.entertainment
+      );
       break;
   }
 
   return trip;
+}
+
+function updateTripProperty(options, currentOption) {
+  let newOption = options[randomNumber(options.length)];
+  while (newOption === currentOption) {
+    newOption = options[randomNumber(options.length)];
+  }
+  return newOption;
 }
 
 function displayDayTrip(dayTrip) {
