@@ -33,6 +33,11 @@ let dayTripApp = function () {
 
     let command = promptUser();
 
+    if (command === null) {
+      console.log("Day Trip Cancelled!");
+      return;
+    }
+
     switch (command.toLowerCase()) {
       case "a":
         dayTrip = generateDayTrip();
