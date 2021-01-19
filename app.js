@@ -23,3 +23,25 @@ const ENTERTAINMENT = [
   "Brewery Tour",
   "Shopping",
 ];
+
+function generateDayTrip() {
+  let dayTrip = {
+    destination: "",
+    restaurant: "",
+    transportation: "",
+    entertainment: "",
+  };
+
+  dayTrip.destination = DESTINATIONS[randomNumber(DESTINATIONS.length)];
+  dayTrip.restaurant = RESTAURANTS[randomNumber(RESTAURANTS.length)];
+  dayTrip.transportation = TRANSPORTATION[randomNumber(TRANSPORTATION.length)];
+  dayTrip.entertainment = ENTERTAINMENT[randomNumber(ENTERTAINMENT.length)];
+
+  console.log(dayTrip);
+}
+
+function randomNumber(max) {
+  return Math.floor(Math.random() * max);
+}
+
+generateDayTrip();
