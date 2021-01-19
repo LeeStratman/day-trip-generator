@@ -29,8 +29,6 @@ let dayTripApp = function () {
   let confirmed = false;
 
   while (!confirmed) {
-    displayDayTrip(dayTrip);
-
     let command = promptUser();
 
     if (command === null) {
@@ -103,11 +101,11 @@ let dayTripApp = function () {
 
   function confirmDayTrip() {
     confirmed = true;
+    displayDayTrip();
     alert("Your trip has been confirmed! Enjoy!");
   }
 
-  function displayDayTrip(dayTrip) {
-    console.clear();
+  function displayDayTrip() {
     console.log("Your Day Trip: \n");
     console.log("Destination: ", dayTrip.destination);
     console.log("Restaurant: ", dayTrip.restaurant);
