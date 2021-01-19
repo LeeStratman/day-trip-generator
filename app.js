@@ -15,7 +15,14 @@ let dayTripApp = function () {
     "Culvers",
     "Chick-fil-A",
   ];
-  const TRANSPORTATION = ["Bus", "Train", "Bike", "Car"];
+  const TRANSPORTATION = [
+    "Bus",
+    "Train",
+    "Bike",
+    "Car",
+    "Horseback",
+    "Skateboard",
+  ];
   const ENTERTAINMENT = [
     "Museum",
     "Zoo",
