@@ -59,8 +59,7 @@ while (!confirmed) {
       );
       break;
     case "confirm":
-      confirmed = true;
-      alert("Your trip has been confirmed! Enjoy!");
+      confirmDayTrip();
       break;
     default:
       console.log("Invalid command, please try again!");
@@ -82,6 +81,11 @@ function updateTripProperty(options, currentOption = "") {
     newOption = options[randomNumber(options.length)];
   }
   return newOption;
+}
+
+function confirmDayTrip() {
+  confirmed = true;
+  alert("Your trip has been confirmed! Enjoy!");
 }
 
 function displayDayTrip(dayTrip) {
