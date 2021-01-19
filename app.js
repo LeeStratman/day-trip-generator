@@ -95,7 +95,13 @@ let dayTripApp = function () {
 
   function promptUser() {
     return prompt(
-      "Your day trip is displayed in the console. To generate a new trip, enter 'a'.  To update a single option, enter the first letter of that option (e.g. To change the destination, enter the letter 'd').  To confirm the day trip, enter 'confirm'.",
+      `Your day trip is displayed below:\n
+      Destination: ${dayTrip.destination} (enter 'd' to update)\n
+      Restaurant: ${dayTrip.restaurant} (enter 'r' to update)\n
+      Transportation: ${dayTrip.transportation} (enter 't' to update)\n
+      Entertainment: ${dayTrip.entertainment} (enter 'e' to update)\n
+      
+      To generate a new trip, enter 'a'. To confirm the day trip, enter 'confirm'.`,
       "confirm"
     );
   }
