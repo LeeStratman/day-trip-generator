@@ -38,16 +38,25 @@ while (!confirmed) {
       dayTrip = generateDayTrip();
       break;
     case "d":
-      dayTrip = updateDayTrip(dayTrip, "destination");
+      dayTrip.destination = updateTripProperty(
+        DESTINATIONS,
+        dayTrip.destination
+      );
       break;
     case "r":
-      dayTrip = updateDayTrip(dayTrip, "restaurant");
+      dayTrip.restaurant = updateTripProperty(RESTAURANTS, dayTrip.restaurant);
       break;
     case "t":
-      dayTrip = updateDayTrip(dayTrip, "transportation");
+      dayTrip.transportation = updateTripProperty(
+        TRANSPORTATION,
+        dayTrip.transportation
+      );
       break;
     case "e":
-      dayTrip = updateDayTrip(dayTrip, "entertainment");
+      dayTrip.entertainment = updateTripProperty(
+        ENTERTAINMENT,
+        dayTrip.entertainment
+      );
       break;
     case "confirm":
       confirmed = true;
@@ -60,39 +69,14 @@ while (!confirmed) {
 
 function generateDayTrip() {
   return {
-    destination: DESTINATIONS[randomNumber(DESTINATIONS.length)],
-    restaurant: RESTAURANTS[randomNumber(RESTAURANTS.length)],
-    transportation: TRANSPORTATION[randomNumber(TRANSPORTATION.length)],
-    entertainment: ENTERTAINMENT[randomNumber(ENTERTAINMENT.length)],
+    destination: updateTripProperty(DESTINATIONS),
+    restaurant: updateTripProperty(RESTAURANTS),
+    transportation: updateTripProperty(TRANSPORTATION),
+    entertainment: updateTripProperty(ENTERTAINMENT),
   };
 }
 
-function updateDayTrip(trip, tripProperty) {
-  switch (tripProperty) {
-    case "destination":
-      trip.destination = updateTripProperty(DESTINATIONS, trip.destination);
-      break;
-    case "restaurant":
-      trip.restaurant = updateTripProperty(RESTAURANTS, trip.restaurant);
-      break;
-    case "transportation":
-      trip.transportation = updateTripProperty(
-        TRANSPORTATION,
-        trip.transportation
-      );
-      break;
-    case "entertainment":
-      trip.entertainment = updateTripProperty(
-        ENTERTAINMENT,
-        trip.entertainment
-      );
-      break;
-  }
-
-  return trip;
-}
-
-function updateTripProperty(options, currentOption) {
+function updateTripProperty(options, currentOption = "") {
   let newOption = options[randomNumber(options.length)];
   while (newOption === currentOption) {
     newOption = options[randomNumber(options.length)];
