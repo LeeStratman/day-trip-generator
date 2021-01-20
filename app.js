@@ -33,9 +33,8 @@ let dayTripApp = function () {
   ];
 
   let dayTrip = generateDayTrip();
-  let confirmed = false;
 
-  while (!confirmed) {
+  while (!dayTrip.confirmed) {
     let command = promptUser();
 
     if (command === null) {
@@ -69,7 +68,7 @@ let dayTripApp = function () {
         );
         break;
       case "confirm":
-        confirmDayTrip();
+        confirmDayTrip.call(dayTrip);
         break;
       default:
         console.log("Invalid command, please try again!");
@@ -78,6 +77,7 @@ let dayTripApp = function () {
 
   function generateDayTrip() {
     return {
+      confirmed: false,
       destination: updateTripProperty(DESTINATIONS),
       restaurant: updateTripProperty(RESTAURANTS),
       transportation: updateTripProperty(TRANSPORTATION),
@@ -107,16 +107,16 @@ let dayTripApp = function () {
   }
 
   function confirmDayTrip() {
-    confirmed = true;
-    displayDayTrip();
+    this.confirmed = true;
+    displayDayTrip.call(this);
   }
 
   function displayDayTrip() {
     console.log("Your Day Trip: \n");
-    console.log("Destination: ", dayTrip.destination);
-    console.log("Restaurant: ", dayTrip.restaurant);
-    console.log("Transportation: ", dayTrip.transportation);
-    console.log("Entertainment: ", dayTrip.entertainment);
+    console.log("Destination: ", this.destination);
+    console.log("Restaurant: ", this.restaurant);
+    console.log("Transportation: ", this.transportation);
+    console.log("Entertainment: ", this.entertainment);
   }
 
   function randomNumber(max) {
