@@ -35,7 +35,7 @@ let dayTripApp = function () {
   let dayTrip = generateDayTrip();
 
   while (!dayTrip.confirmed) {
-    let command = promptUser();
+    let command = promptUser.call(dayTrip);
 
     if (command === null) {
       console.log("Day Trip Cancelled!");
@@ -98,10 +98,10 @@ let dayTripApp = function () {
   function promptUser() {
     return prompt(
       `Your day trip is displayed below:\n\n
-      Destination: ${dayTrip.destination} (enter 'd' to update)\n
-      Restaurant: ${dayTrip.restaurant} (enter 'r' to update)\n
-      Transportation: ${dayTrip.transportation} (enter 't' to update)\n
-      Entertainment: ${dayTrip.entertainment} (enter 'e' to update)\n\n\nTo confirm the day trip, enter 'confirm'.\n`,
+      Destination: ${this.destination} (enter 'd' to update)\n
+      Restaurant: ${this.restaurant} (enter 'r' to update)\n
+      Transportation: ${this.transportation} (enter 't' to update)\n
+      Entertainment: ${this.entertainment} (enter 'e' to update)\n\n\nTo confirm the day trip, enter 'confirm'.\n`,
       "confirm"
     );
   }
