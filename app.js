@@ -97,11 +97,11 @@ let dayTripApp = function () {
 
   function promptUser() {
     return prompt(
-      `Your day trip is displayed below:\n\n
+      `Your day trip is displayed below:\n
       Destination: ${this.destination} (enter 'd' to change)\n
       Restaurant: ${this.restaurant} (enter 'r' to change)\n
       Transportation: ${this.transportation} (enter 't' to change)\n
-      Entertainment: ${this.entertainment} (enter 'e' to change)\n\n\nTo confirm the day trip, enter 'confirm'.\n`,
+      Entertainment: ${this.entertainment} (enter 'e' to change)\n\nTo confirm the day trip, enter 'confirm'.\n`,
       "confirm"
     );
   }
